@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require 'method_todo'
+
+manager = MethodTodo::TaskManager.new
+
+if ARGV[0] == 'task'
+  manager.add_task(ARGV[1], for: ARGV[2])
+end
+
+at_exit do
+  manager.cleanup
+end
